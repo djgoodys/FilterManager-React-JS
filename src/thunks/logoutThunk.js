@@ -1,12 +1,11 @@
 
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const Logout = createAsyncThunk(
-    'userData/loggedIn',
-    async () => {
-        const data = { LoggedIn: "false" };
-        return data;
-    }
-);
+export const Logout = createAsyncThunk('auth/logout', async (_, { rejectWithValue }) => {
+  try {
+    return {loggedIn:false}; 
+  } catch (error) {
+    return rejectWithValue(error.message);
+  }
+});
 

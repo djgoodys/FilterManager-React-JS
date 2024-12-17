@@ -1,6 +1,3 @@
-*{
-scrollbar-width: thin;
-}
 #divTasks{
   width:1595px;
   padding:20px;
@@ -19,11 +16,6 @@ scrollbar-width: thin;
   z-index: 2;
 }
 
-.divTasksVisible{
-display:grid; 
-grid-template-columns:80% 20%;
-}
-
 #datatable{
   margin-top:20px;
   display: flex;
@@ -32,41 +24,13 @@ grid-template-columns:80% 20%;
   flex-direction: column;
 }
 
-.divTasksHidden{
-  display:none;
-}
-
-#divBtnSubmitTasks{
-  display:flex;
-  flex-direction:row;
-  align-items:center;
-  justify-content:center;
-  background-color: green;
-  width:100%;
-}
 .notes{
   width: 100%;
-  height:min-content(100px: 200px);
   overflow-y: scroll;
 }
 
-.btnUpdateNotesVisible{
-  display:block;
-}
-
-.btnUpdateNotesHidden{
-  background-color: green;
-  display:none;
-}
-
-
-
 .switch-invisible{
   display:none;
-}
-
-.selectUserVisible{
-  display:block;
 }
 
 .server-message-visible{
@@ -86,23 +50,10 @@ grid-template-columns:80% 20%;
   display: none;
 }
 
-.container-Addtasks{
-  display:flex;
-  flex-direction:row;
-  align-items:left;
-  justify-content:flex-start;
-  width:100%;
-  height:200px;
-  background-color:rgb(89, 175, 237);
-  color:white;
-  z-index:1;
-  overflow-x:hidden;
-  transition:0.5s;
-  border:4px solid black;
-}
 .closeNav{
     display:none;
 }
+
 .openNav{
   background-color: black;
     height:35%;
@@ -144,22 +95,7 @@ grid-template-columns:80% 20%;
   border-radius: 30px;
   box-shadow: 4px 4px black;
   }
-.myButton3 {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: yellow;
-  font-size:1.5em;
-  padding: 1px 1px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  width:15vw; 
-  height:20vhw; 
-  border-radius:25px;
-  box-shadow:4px 4px black;
-  margin-top:20px;
-  } 
-  
+
   .dropdown:hover > .dropdown-content{
     display:grid;
   }
@@ -167,6 +103,7 @@ grid-template-columns:80% 20%;
   .dropdown-content{
     display:none;
   }
+
 .myButton2 {
   background-color: #4CAF50; /* Green */
   border: none;
@@ -191,22 +128,6 @@ grid-template-columns:80% 20%;
   z-index:2;
 }
 
-.myButtonMobile {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  font-size:1.25em;
-  font-family:Arial, sans-serif;
-  padding: 1px 1px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  width:8vw; 
-  height:70px; 
-  border-radius: 5px;
-  box-shadow: 4px 4px black;
-  }
-
   #tblNavigation{
       display:flex;
       flex-direction:row;
@@ -217,7 +138,7 @@ grid-template-columns:80% 20%;
   }
 
   #tblFilterTypes{
-    width:"50%";
+    width:50%;
     margin:0 auto;
     background-color: red;
   }
@@ -275,20 +196,6 @@ grid-template-columns:80% 20%;
     width:80%;
   }
 
-  .myButton2Mobile {
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: yellow;
-  font-weight:bold;
-  font-size:1.25vw;
-  padding: 1px 1px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  width:230px; 
-  height:30px; 
-  }
-
 /* Hide the browser's default checkbox */
 .container input {
   position: absolute;
@@ -298,55 +205,8 @@ grid-template-columns:80% 20%;
   width: 0;
 }
 
-.btnTasks{
-  border-radius: 8px;
-  background-color:white;
-  color:green;
-  font-size:1em;
-  font-family:Arial, sans-serif;
-  padding: 1px 1px;
-  text-align: center;
-  height:60%;
-  width: 100%;
-  vertical-align: middle;
-  border:3px solid white;
-  margin:25px 20px;
-}
-
-.BtnSubmitTasksVisible{
-  display:block;
-  background-color:green;
-  height:100px;
-
-}
-.BtnSubmitTasksHidden{
-  display:none;
-}
-/*for Web_update_filters.php */
-.FiltersNeeded {
-text-align:center;
-
-}
-.FiltersNeeded_Amount {
-text-align:center;
-
-width:5px;
-}
-
-
 input[type="hidden"] {
     display: none;
-}
-
-  .Color-Light{
-background-color:#eeeee4";
-  }
-  .Color-Dark{
-background-color:black";
-  }
-
-.Light-tdPlain{
-color:purple;
 }
 
 .switch {
@@ -416,54 +276,6 @@ z-index: -1;
 z-index: -1;
  }
 
-   .EditRow {
-      background-color:#32a852;
-      width:100%;
-      color: #9CCC65;
-   }
-.EditRow tr{
-width:100%;
-}
-/* web_update_filter.php */
-.EditRow div{
-background-color: #857a7a;
-}
-
-/* web_update_filter.php */
-#FilterRowTextArea{
-overflow: auto;
-max-width:200px;
-max-height:80;
-flex-shrink: 2;
-
-font-size: min(max(6px, 2vw), 12px);
--webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-
-
-scrollbar-width: thin;
-}
-.DisplayNone{
-display:none;
-}
-/* web_update_filter.php */
-   .TextAreaFilters{
-  height: 20vh;
-  width: 8vw;
-  position:relative;
-  background-color:  white;
-  color:blueviolet;
-  font-weight: bold;
-  font-size: min(max(6px, 2vw), 12px);
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  overflow:auto;
-  overflow-y: scroll;
-  scrollbar-width: thin;
-   }
-
    .UnitInfoClosed{
     background-color: green;
     color:white;
@@ -509,7 +321,7 @@ display:none;
    }
 
    #menu {
-    display:"grid";
+    display:grid;
     grid-template-columns: repeat(2, 1fr); 
     width:40%;
     height:30px;
@@ -585,14 +397,7 @@ display:none;
         background-color: red;
         color:white;
       }
-    #ULsearch-results{
-      display:flex;
-      flex-direction:row;
-      text-align: center;
-      display: table;
-      vertical-align: middle;
-      margin:0 auto;
-      }
+   
 
       .Bydate-item{
         width:100%;
@@ -629,12 +434,7 @@ display:none;
     .search {
       margin-top:20px;
       }
-
-      #ULsearch-results li:hover{
-      background-color: #32a852;
-      color: whitesmoke;
-
-      }
+      
    .Toolbar{
     background-color: white;
     color:green;
@@ -648,7 +448,7 @@ display:none;
     width:100%;
     height:fit-content;
     margin-top:0px;
-   } */
+   } 
 
     .DatatableUnitInfoCloseButton{
       background-color: white;
@@ -657,71 +457,7 @@ display:none;
       border-radius: 8px;
       padding:4px;
     }
-   /* web_update_filter.php */
-   .FilterRow {
 
-      min-width: 150px;
-
-      margin-left: auto;
-      margin-right: auto;
-   }
-/* web_update_filter.php */
-  .FilterRow div {
-
-background-color:transparent;
-  }
-/* web_update_filter.php */
-.fselect {
-border-radius: 5px;
-}
-/* web_update_filter.php */
-.nonEditable {
-
-background-color:whitesmoke;
-border-radius: 5px;
-width:4em;
-color:aqua;
-}
-/* web_update_filter.php */
-   table.FilterRow tr:hover td {
-      background-color:rgb(188, 37, 173);
-      color:white;
-      } 
-
-a{
-    a:link {
-        color: green;
-        background-color: transparent;
-        text-decoration: none;
-      }
-      
-      a:visited {
-        color: pink;
-        background-color: transparent;
-        text-decoration: none;
-      }
-      
-      a:hover {
-        color: red;
-        background-color: transparent;
-        text-decoration: underline;
-      }
-      
-      a:active {
-        color: yellow;
-        background-color: transparent;
-        text-decoration: underline;
-      }
-    }
-
-
-.tableTasks{
-        width: 100%; /* Full-width */
-         border: none;
-margin-left:20px;
-margin-right:20px;
-
-}
 /* .ftype and .selectWrapper FOR webTasks.php select box*/
 .ftype{
 background-color: #32a852;
@@ -731,54 +467,9 @@ color:white;
   border:0px;
   outline:none;
 }
-.selectWrapper{
-  border-radius:5px;
-  display:inline-block;
-  overflow:hidden;
-  background:#cccccc;
-  border:1px solid #cccccc;
-  text-align: right;
-}
-
-.myTable {
-  border-collapse: collapse;  
-  width: 100%;
-  border: 1px solid #857a7a;
-  margin:20px;
-  margin-top: 0px;
-  height:fit-content;
-}
-        
-.myTable th {
-  background-color:green;
-  color:white;
-  text-align:left;
-  font-size: 1rem;
-}
-
-.myTable td {
-vertical-align: middle;
-padding: 2px; /* Add padding */
-}
-
-.myTable tr{  
-border-bottom: 1px solid #ddd;   
-}
-
-.editme {
-  text-align:center;
-  width:200px;
-  background-color:blue;
-  height:60px;
-}
 
 .filter{
   text-align:center;
   width:200px;
   background-color:orange; 
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
 }

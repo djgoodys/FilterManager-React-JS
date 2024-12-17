@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { Login } from '../thunks/loginThunk';
 import { Logout } from '../thunks/logoutThunk';
-
 const loginSlice = createSlice({
   name: 'userData',
   initialState: {
@@ -23,31 +22,34 @@ const loginSlice = createSlice({
         if (state.userData && state.userData.hasOwnProperty('backup_folder')) {
           state.backup_folder = state.userData.backup_folder;
         }
-        if (action.payload.login === "passed") {
-          state.loggedIn = true;
+        if(action.payload && action.payload.login === "logout"){state.loggedIn = false
+        localStorage.setItem("loggedin", "false"
+        )
         }
+        if(state.userData && state.userData.login === "passed"){
+          state.loggedIn = true;
+          localStorage.setItem("loggedin", "true")}
         state.error = '';
       })
       .addCase(Login.rejected, (state, action) => {
         state.loading = false;
         state.userData = null;  // Set to null for consistency
-        state.loggedIn = false;
         state.error = action.error.message;
       })
+
       .addCase(Logout.pending, (state) => {
         state.loading = true;
       })
-      .addCase(Logout.fulfilled, (state) => {
-        state.loggedIn = false;
-        state.userData = null;  // Set to null for consistency
-        state.backup_folder = '';
+      .addCase(Logout.fulfilled, (state, action) => {
         state.loading = false;
+          state.loggedIn = false;
+          localStorage.setItem("loggedin", "false")
+        state.error = '';
       })
       .addCase(Logout.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      });
-
+      })
   },
 });
 

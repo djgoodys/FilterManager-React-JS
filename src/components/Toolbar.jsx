@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Search from './Search.jsx';
-//import { toggleNavigation, isMobileDevice, ckifloggedin, closeNav, openNav, logout, ckOverLay } from '../listEquipmentFunctions.js';
 import { manageEquipment } from '../thunks/equipmentThunk.js';
 import imgsettings from '../images/settings3.png';
 import Imgprint from '../images/print3.png';
@@ -55,9 +54,7 @@ const Toolbar = () => {
       <div id="divServerResponse" cols="8" style={{ width: '100%', height: '200px', visibility: 'visible', display: 'none', backgroundColor: 'green', fontSize: '1.5rem', color: 'white', fontWeight: 'bold', overflow: 'scroll' }}>
         {serverResponse}
       </div>
-      <div id='tblTools' className="Toolbar">
-        <div id="menuTools" >
-        </div>
+      <div id='tblTools' className="Toolbar" style={{display:"flex",flexDirection:"row"}}>
         <div>
           <input type="text" ref={reftxtOverdue} style={{ display: 'none' }} onChange={(event) => setIsOverdue(event.target.value)} value={isOverdue} />
           <div
@@ -91,14 +88,12 @@ const Toolbar = () => {
           </div>
         </div>
         <div>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '20px', boxShadow: ' 3px 3px black', borderRadius: '50%', textAlign: 'center', backgroundColor: '#97D09D', color: 'black', fontWeight: 'bold', fontSize: '1em', height: '50px', border: '3px solid green', width: '45px' }} >{userName} </div>
+          <div style={{ display: 'flex', justifyContent: 'center',alignItems:"center",marginTop: '20px', boxShadow: ' 3px 3px black', borderRadius: '50%', textAlign: 'center', backgroundColor: '#97D09D', color: 'black', fontWeight: 'bold', fontSize: '1em', height: '50px', border: '3px solid green', width: '45px' }} >{userName} </div>
         </div>
         <div style={{ margin: '23px 0 0 10px' }}>
-          <a href="#" >
-            <img src={Imgprint} title="print unit list" style={{ border: '3px solid green', height: '50px', borderRadius: '50%', boxShadow: ' 4px 4px black', }} /></a>
+            <img src={Imgprint} title="print unit list" style={{ border: '3px solid green', height: '50px', borderRadius: '50%', boxShadow: ' 4px 4px black', }} />
         </div>
         <div>
-          <a href="#" title="go to app settings" >
             <div style={{
               backgroundImage: `url(${imgsettings})`,
               boxShadow: '4px 4px black',
@@ -111,8 +106,7 @@ const Toolbar = () => {
               width: '50px'
             }}>
             </div>
-          </a>
-        </div>
+          </div>
 
         <Bydate />
       </div>

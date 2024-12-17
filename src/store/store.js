@@ -11,6 +11,7 @@ import { thunk } from 'redux-thunk';
 // Combine your reducers into a single root reducer
 const rootReducer = combineReducers({
   userData: loginSlice,
+  loggedIn: loginSlice,
   backup_folder: loginSlice,
   equipment: equipmentSlice,
   filter_types: filterTypesSlice,

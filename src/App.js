@@ -15,11 +15,10 @@ const App = () => {
   //const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   return (
     <div>
-        <Router future={{
+        <Router basename="/filtermanagerreact" future={{
           v7_startTransition: true,
         }}>
           <Routes>
-            <Route path="/navbar" element={<NavButtons />} />
             <Route path="/" element={<TblLogin />} />
             <Route path="/list_equipment" element={<><NavButtons /><DataTable /></>} />
             <Route path="/tasks" element={<><NavButtons /><Tasks /></>} />

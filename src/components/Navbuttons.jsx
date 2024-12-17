@@ -2,8 +2,7 @@ import React, { useState, useRef } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import Toolbar from './Toolbar'
 import { useDispatch, useSelector } from 'react-redux'; 
-import { Logout } from '../thunks/logoutThunk.js';
-import Datatable from './Datatable'; 
+import { Login } from '../thunks/loginThunk.js';
 
 
 const Navbuttons = () => {
@@ -12,9 +11,12 @@ const Navbuttons = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
+
   const LogOut = () => {
-    navigate("/")
-    dispatch(Logout())
+    localStorage.setItem("loggedin", "false")
+    navigate("/") || navigate("")
+    const obj = {action:'logout'}
+    dispatch(Login(obj))
   }
 
   function openNav() {

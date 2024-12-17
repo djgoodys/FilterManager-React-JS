@@ -35,7 +35,7 @@ const FrmLogin = () => {
       const response = await dispatch(Login(obj));
 
       if (response.payload.login === "passed") {
-        spinner(true);
+        setSpinner(false);
         dispatch(Login(response.payload));
         const backup_folder = response.payload.backup_folder;
         localStorage.setItem("backup_folder", backup_folder);
@@ -45,7 +45,6 @@ const FrmLogin = () => {
           action: "get-all-units"
         }
         dispatch(manageEquipment(vars));
-        // navigate('/navbar');
         localStorage.setItem("loggedin", "true");
       } else {
         setServerMessage("LOGIN ATTEMPT FAILED");
@@ -85,6 +84,7 @@ const FrmLogin = () => {
                   type="text"
                   id="txtUserName"
                   ref={txtUserNameRef}
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="ENTER USER NAME HERE"
                   name="username"
@@ -98,6 +98,7 @@ const FrmLogin = () => {
                   type="password"
                   onChange={(e) => setPassword(e.target.value)}
                   name="password"
+                  value={password}
                   style={{ color: 'black' }}
                   id="txtPassword"
                   autoComplete="on"

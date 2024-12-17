@@ -19,7 +19,6 @@ const Datatable = (props) => {
     const [tasks, setTasks] = useState([]);
     const [isDisabled, setIsDisabled] = useState(true);
     let filterDueDate = useRef('');
-    const [btnUpdateNotesClass, setBtnUpdateNotesClass] = useState("btnUpdateNotesHidden");
     const [AssignedToo, setAssignedToo] = useState('')
     //const [checkedItems, setCheckedItems] = useState({})
     const [TaskCheckedItems, setTaskCheckedItems] = useState({})

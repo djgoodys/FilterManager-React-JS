@@ -14,8 +14,15 @@ const TblLogin = () => {
   const [noUsers, setNoUsers] = useState(false);
   const txtUserNameRef = useRef(null);
   const dispatch = useDispatch()
-  //const userData = useSelector((state) => state.userData)
-  const loggedIn = useSelector((state) => state.loggedIn)
+  function stringToBoolean(str) {
+    return str.toLowerCase() === 'true';
+  }
+  let loggedIn = false
+  const localStorageLoggedIn = localStorage.getItem("loggedin") || "false"
+  const wasloggedIn = stringToBoolean(localStorageLoggedIn) || false
+  
+  const stateloggedIn = useSelector((state)=>state.loggedIn.loggedIn)
+  if(stateloggedIn || wasloggedIn == true){loggedIn = true}
   return (
     <div>
           <div className="App">
