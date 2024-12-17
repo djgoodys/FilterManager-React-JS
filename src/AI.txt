@@ -1,0 +1,83 @@
+import React, { useState } from 'react';
+
+const MyComponent = ({ data }) => {
+  const [textareatext, setTextareatext] = useState('');
+  const [filteredData, setFilteredData] = useState(data);
+
+  const ChangeTextArea = () => {
+    const today = new Date().toLocaleDateString('en-CA'); // Format date as Y-m-d
+    const filteredItems = data.filter((item) => {
+      const itemDate = new Date(item.filters_due).toLocaleDateString('en-CA');
+      return itemDate < today;
+    });
+
+    const filteredIds = filteredItems.map((item) => item._id).join(', ');
+    setTextareatext(filteredIds);
+    setFilteredData(filteredItems);
+  };
+
+  const isDateOlderThanToday = (date) => {
+    const today = new Date().toLocaleDateString('en-CA');
+    const itemDate = new Date(date).toLocaleDateString('en-CA');
+    return itemDate < today;
+  };
+
+  return (
+    <div>
+      <textarea
+        id="object"
+        value={textareatext}
+        onChange={(e) => setTextareatext(e.target.value)}
+      />
+      <button onClick={ChangeTextArea}>Update</button>
+      <table border="1" className='myTable'>
+        <thead>
+          <tr>
+            <th>Unit Name</th>
+            <th>Location</th>
+            <th>Area Served</th>
+            <th>Filter Size</th>
+            <th>Filters Due</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredData.map((item) => (
+            <tr 
+              key={item.id}
+              style={{
+                backgroundColor: isDateOlderThanToday(item.filters_due) ? 'red' : 'transparent',
+                color: isDateOlderThanToday(item.filters_due) ? 'white' : 'black'
+              }}
+            >
+              <table className='UnitInfoClosed' id={`tbl${item._id}`}>
+                <tr>
+                  <td align="left">{item.unit_name}</td>
+                  <td>
+                    <button className='DatatableUnitInfoCloseButton' title={'Close info ' + item.unit_name} onClick={(event) => toggleClass(event, true, item._id)}>Close</button>
+                  </td>
+                </tr>
+                <tr><td>Location</td><td>{item.location}</td></tr>
+                <tr><td>Area Served</td><td>{item.area_served}</td></tr>
+                <tr><td>Filter Size</td><td>{item.filter_size}</td></tr>
+                <tr><td>Filter Type</td><td>{item.filter_type}</td></tr>
+                <tr><td>Filter Due Date</td><td>{item.filters_due}</td></tr>
+                <tr><td>Filters Last replaced</td><td>{item.filters_last_changed}</td></tr>
+                <tr><td>Filter Rotation</td><td>{item.filter_rotation}</td></tr>
+                <tr><td>Belts</td><td>{item.belts}</td></tr>
+                <tr><td>Notes</td><td>{item.notes}</td></tr>
+                <tr><td>Assigned Too</td><td>{item.assigned_to}</td></tr>
+              </table>
+              <td><a onClick={(event) => toggleClass(event, true, item._id)}>{item.unit_name}</a></td>
+              <td>{item.location}</td>
+              <td>{item.area_served}</td>
+              <td>{item.filter_size}</td>
+              <td>{item.filters_due}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default MyComponent;

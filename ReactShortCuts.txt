@@ -1,0 +1,13 @@
+React shortcut for new component: rfce tab
+
+IIEF sytax:
+(function (){ 
+  // Function Logic Here. 
+  })();
+
+  ternary:
+  condition ? trueExpression : falseExpression
+isDateOlderThanToday(item.filters_due)? setoverdueClass("overdue"):setoverdueClass("notoverdue");
+
+Flex align items stuff for React:
+display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center'
