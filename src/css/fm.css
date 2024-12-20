@@ -1,5 +1,4 @@
 #divTasks{
-  width:1595px;
   padding:20px;
   border: 1px solid black;
   border-top-left-radius: 8px;
@@ -14,6 +13,7 @@
   position:sticky;
   top: 0;
   z-index: 2;
+  width:
 }
 
 #datatable{
