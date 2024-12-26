@@ -91,7 +91,7 @@ const Toolbar = () => {
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: "center", marginTop: '20px', boxShadow: ' 3px 3px black', borderRadius: '50%', textAlign: 'center', backgroundColor: '#97D09D', color: 'black', fontWeight: 'bold', fontSize: '1em', height: '50px', border: '3px solid green', width: '45px' }} >{userName} </div>
         </div>
         <div style={{ margin: '23px 0 0 10px' }}>
-          <img src={Imgprint} onClick={navigate("/print")} title="print unit list" style={{ border: '3px solid green', height: '50px', borderRadius: '50%', cursor:"pointer", boxShadow: ' 4px 4px black', }} />
+          <img src={Imgprint} onClick={()=>navigate("/print")} title="print unit list" style={{ border: '3px solid green', height: '50px', borderRadius: '50%', cursor:"pointer", boxShadow: ' 4px 4px black', }} />
         </div>
         <div>
         </div>

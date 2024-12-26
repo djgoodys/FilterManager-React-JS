@@ -1,17 +1,37 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useReactToPrint } from 'react-to-print';
 import { useDispatch, useSelector } from 'react-redux';
 import { manageEquipment } from '../thunks/equipmentThunk.js';
 import Button from 'react-bootstrap/Button';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+
 
 const Print = () => {
     const contentRef = useRef(null);
+    const [fontsize, setFontSize] = useState('.5rem');
+
+    function formatFilters(myString) {
+        //const openParenCount = (myString.match(/\(/g) || []).length;
+        const openParenCount = myString.split(')').length - 1;
+   
+        if (openParenCount === 1) {
+            return [myString];
+        } else if (openParenCount === 2) {
+            const firstIndex = myString.indexOf('(', myString.indexOf('(') + 1);
+            return [myString.slice(0, firstIndex), myString.slice(firstIndex)];
+        }
+        return [myString]; // For cases with more than 2 '('
+    }
+    
+
+
     const reactToPrintFn = useReactToPrint({ 
         contentRef,
         trigger: () => <button>Print</button>,
         pageStyle: () => `
             size: A4 portrait;
-            margin: 0.5in;
+            margin: 0.25in;
             -webkit-print-color-adjust: exact;
         `
     });
@@ -57,12 +77,13 @@ const Print = () => {
             }
             let task_id = "cktask" + item._id;
             let filterDueDate = item.filters_due;
+            const filters = formatFilters(item.filter_size);
             rows.push(
-                <tr style={{color:isDateOlderThanToday(item.filters_due) ? "red":"black"}} key={item._id} >
+                <tr style={{color:isDateOlderThanToday(item.filters_due) ? "red":"black", border:"1px solid black", fontSize:fontsize}} key={item._id}>
                     <td>{item.unit_name}</td>
                     <td>{item.location}</td>
                     <td>{item.area_served}</td>
-                    <td>{item.filter_size}</td>
+                    <td>{filters[0]}<br />{filters[1]}</td>
                     <td>{filterDueDate}</td>
                 </tr>
             );
@@ -70,8 +91,17 @@ const Print = () => {
         return rows;
     }
     return (
-        <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:"1.5rem", margin:"0 40px"}} ref={contentRef}>
-            <Button variant="success" onClick={() => reactToPrintFn()}>Print now</Button>
+        <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:".5rem", margin:"0 40px"}}>
+            <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
+            <Button variant="success" style={{marginRight:"20px"}} onClick={() => reactToPrintFn()}>Print now</Button>
+            <FloatingLabel controlId="floatingSelect" label="Font size" onChange={(e) => setFontSize(e.target.value + "rem")}>
+            <Form.Select aria-label="Floating label select example">
+            <option value=".5" selected>small</option>
+            <option value="1.5">medium</option>
+            <option value="2">large</option>
+            </Form.Select>
+            </FloatingLabel>
+            </div>
             <div ref={contentRef}>
                 <table style={{width:"100%"}}>
                     <tr>

@@ -9,7 +9,7 @@ const Filtersdone = ({ unit_id = "000", rotation = 1, filter_types }) => {
   const dispatch = useDispatch()
   const loading = useSelector(state => state.loading);
   const error = useSelector(state => state.error);
-  const [slctFilter, setSlctFilter] = useState()
+  const [slctFilter, setSlctFilter] = useState('')
   const refslctFilter = useRef(null)
   const userName = localStorage.getItem('username')
   const [showTypes, setShowTypes] = useState(false)
@@ -59,7 +59,7 @@ const Filtersdone = ({ unit_id = "000", rotation = 1, filter_types }) => {
   return (
     <div>
       <label className={showTypes ? "switch-invisible" : "switch"}>
-        <input type="checkbox" id="ckShowFilterTypes" onClick={() => setShowTypes(true)} checked={isChecked} />
+        <input type="checkbox" id="ckShowFilterTypes" onChange={() => setShowTypes(true)} checked={isChecked}  />
         <span className="slider round"></span>
       </label>
       <div>
