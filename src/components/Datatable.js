@@ -14,6 +14,9 @@ import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
 
 const Datatable = (props) => {
+    const componentRef = useRef()
+    const contentRef = useRef(null);
+
     const [showNotes, setShowNotes] = useState(false)
     const [showTasks, setShowTasks] = useState(false);
     const [tasks, setTasks] = useState([]);
@@ -312,9 +315,14 @@ const Datatable = (props) => {
     //---------------------------------
     return (
         <div id="datatable">
-            <Spinner style={{ width: "100px", height: "100px", display: Object.keys(ac_units).length > 0 ? "none" : "block" }} animation="border" variant="primary" role="status">
-                <span >Loading...</span>
+            <Spinner style={{ width: "50px", height: "50px", backgroundColor:"green", display: Object.keys(ac_units).length > 0 ? "none" : "block" }} animation="border" variant="primary" role="status">
+                <span ></span>
             </Spinner>
+            <div>
+            
+
+
+            </div>
             <div id="divTasks" ref={refDivTasks} style={{ display: showTasks && tasks.length > 0 ? "grid" : "none", gridTemplateColumns: "1fr .5fr" }}>
 
                 <div style={{ display: "flex" }}>

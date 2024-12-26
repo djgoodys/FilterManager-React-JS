@@ -7,15 +7,16 @@ import Filters from './components/Filters.jsx'
 import FilterTypes from './components/FilterTypes.jsx'
 import ListEquipment from './components/ListEquipment'
 import About from './components/About.jsx'
+import Print from './components/Print.jsx'
 import { useSelector} from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DataTable from "./components/Datatable"
 const App = () => {
-  //const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  console.log("base name: ", process.env.REACT_APP_BASENAME)
   return (
     <div>
-        <Router basename="/filtermanagerreact" future={{
+        <Router basename= {process.env.REACT_APP_BASENAME} future={{
           v7_startTransition: true,
         }}>
           <Routes>
@@ -26,6 +27,7 @@ const App = () => {
             <Route path="/filters" element={<><NavButtons /><Filters /></>} />
             <Route path="/filter-types" element={<><NavButtons /><FilterTypes /></>} />
             <Route path="/about" element={<><NavButtons /><About /></>} />
+            <Route path="/print" element={<><NavButtons /><Print /></>} />
           </Routes>
         </Router>
     </div>

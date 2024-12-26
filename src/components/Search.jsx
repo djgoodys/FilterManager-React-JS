@@ -147,7 +147,7 @@ const Search = () => {
             <li className={"LiSearch"} key={unit.id} onClick={() => submitSearch(unit.unit_name)}>{unit.unit_name}</li>
           ))}
         </ul>
-        <img src={searchImage} style={{ boxShadow: '4px 4px black', height: '50px', width: '50px', marginLeft: '5px', borderRadius: '30px', border: '3px solid green', textAlign: 'middle' }} id="img_search" onClick={() => submitSearch()} />
+        <img src={searchImage} style={{cursor:"pointer",boxShadow: '4px 4px black', height: '50px', width: '50px', marginLeft: '5px', borderRadius: '30px', border: '3px solid green', textAlign: 'middle' }} id="img_search" onClick={() => submitSearch()} />
       </div>
       <div id="divServerResponse" style={{ display: 'none', height: '200px', width: '200px' }}>{serverResponse}</div>
     </div>

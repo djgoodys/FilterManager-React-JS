@@ -20,25 +20,6 @@ const Bydate = () => {
     }
     dispatch(manageEquipment(obj))
 
-    // fetch('http://localhost/filtermanagerreact/php/ListEquipment.php?sort=' + sortType, {
-    //   method: 'POST',
-    //   credentials: 'include'
-    // })
-    //   .then(response => {
-    //     if (!response.ok) {
-    //       throw new Error('Network response was not ok ' + response.statusText);
-    //     }
-    //     return response.text();
-    //   })
-    //   .then(data => {
-    //     let xdata = JSON.parse(data);
-    //     setData(xdata);
-
-    //   })
-    //   .catch(error => {
-    //     console.log('Fetch Error:', error); // Log any fetch errors
-    //     setServerResponse('An error occurred: ' + error.message);
-    //   })
   }
 
   return (
