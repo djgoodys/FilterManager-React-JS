@@ -232,7 +232,6 @@ useEffect(() => {
 
     return (
         <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", fontSize:".5rem", margin:"0 40px"}}>
-            <p>currentComponent:{componentToPrint.currentComponent}</p>
             <div style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent:"center"}}>
             <Button variant="success" style={{marginRight:"20px"}} onClick={() => printContent()}>Print now</Button>
             <FloatingLabel controlId="floatingSelect" label="Font size" onChange={(e) => setFontSize(e.target.value + "rem")}>
