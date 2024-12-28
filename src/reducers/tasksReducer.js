@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getTasks} from '../thunks/tasksThunk';
+import { manageTasks } from '../thunks/tasksThunk';
 
-const initialState = { 
-    loading: false, 
-    tasks: [], 
-    error:''
+const initialState = {
+  loading: false,
+  tasks: [],
+  error: ''
 }
 
 const tasksSlice = createSlice({
@@ -13,16 +13,16 @@ const tasksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getTasks.pending, (state) => {
+      .addCase(manageTasks.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getTasks.fulfilled, (state, action) => {
+      .addCase(manageTasks.fulfilled, (state, action) => {
         state.loading = false;
         state.tasks = action.payload;
         state.error = ''
       }
-    )
-      .addCase(getTasks.rejected, (state, action) => {
+      )
+      .addCase(manageTasks.rejected, (state, action) => {
         state.loading = false
         state.tasks = []
         state.error = action.error.message;

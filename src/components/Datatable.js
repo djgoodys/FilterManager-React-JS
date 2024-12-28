@@ -12,7 +12,8 @@ import { manageEquipment } from '../thunks/equipmentThunk'
 import { manageUsers } from '../thunks/usersThunk'
 import Spinner from 'react-bootstrap/Spinner';
 import { useNavigate } from 'react-router-dom';
-
+import { updateComponentName } from '../reducers/componentReducer';
+import { useReactToPrint } from 'react-to-print';   
 const Datatable = (props) => {
     const componentRef = useRef()
     const contentRef = useRef(null);
@@ -43,7 +44,8 @@ const Datatable = (props) => {
     }
 
     useEffect(() => {
-        dispatch(manageEquipment(obj2))
+            dispatch(updateComponentName('equipment'))
+            dispatch(manageEquipment(obj2))
             .then(response => {
 
             }
@@ -114,6 +116,7 @@ const Datatable = (props) => {
             task_array: alltasks
         }
         const allunits = dispatch(manageEquipment(obj2))
+        dispatch(updateComponentName('tasks'));
         navigate("/tasks")
     }
     //ac_units = useSelector((state) => state.equipment.equipment)

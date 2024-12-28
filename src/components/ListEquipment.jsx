@@ -22,9 +22,6 @@ const ListEquipment = () => {
 
   const filteredData = isOverdue && Array.isArray(jsonObject) ? filterOverdue(jsonObject) : jsonObject;
 
-  ////console.log("Filtered Data:", filteredData); // Log the filtered data
-  //dispatch(getEquipmentList())
-
   return (
     <div>
       {filteredData && (

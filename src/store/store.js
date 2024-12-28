@@ -6,10 +6,11 @@ import filterTypesSlice from '../reducers/filterTypesReducer';
 import tasksReducer from '../reducers/tasksReducer.js';
 import usersReducer from '../reducers/usersReducer.js'
 import filtersSlice from '../reducers/filtersReducer'
-import dataTableSlice from '../reducers/refDataTableReducer'
+import componentSlice from '../reducers/componentReducer'
 import { thunk } from 'redux-thunk';
 // Combine your reducers into a single root reducer
 const rootReducer = combineReducers({
+  component:componentSlice,
   userData: loginSlice,
   loggedIn: loginSlice,
   backup_folder: loginSlice,
@@ -17,8 +18,7 @@ const rootReducer = combineReducers({
   filter_types: filterTypesSlice,
   tasks: tasksReducer,
   users: usersReducer,
-  filters: filtersSlice,
-  dataTableRef: dataTableSlice,
+  filters: filtersSlice
 });
 
 // Create the Redux store
